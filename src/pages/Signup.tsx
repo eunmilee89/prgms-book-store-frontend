@@ -69,7 +69,7 @@ export default function Signup() {
   );
 }
 
-const StyledSignup = styled.div<{ theme: Theme }>`
+export const StyledSignup = styled.div<{ theme: Theme }>`
   max-width: ${({ theme }) => theme.layout.width.small};
   margin: 80px auto;
 
