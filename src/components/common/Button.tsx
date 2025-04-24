@@ -7,6 +7,7 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   scheme: ButtonScheme;
   disabled?: boolean;
   isLoading?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export default function Button({
@@ -15,6 +16,7 @@ export default function Button({
   scheme,
   disabled,
   isLoading,
+  onClick,
 }: Props) {
   return (
     <ButtonStyle
@@ -22,6 +24,7 @@ export default function Button({
       scheme={scheme}
       disabled={disabled}
       isLoading={isLoading}
+      onClick={onClick}
     >
       {children}
     </ButtonStyle>
