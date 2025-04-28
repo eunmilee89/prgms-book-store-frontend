@@ -15,7 +15,7 @@ export interface SignUpProps {
 
 export default function Login() {
   const navigate = useNavigate();
-  const showAlert = useAlert();
+  const { showAlert } = useAlert();
 
   const { storeLogin } = useAuthStore();
 
