@@ -9,6 +9,7 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   className?: string;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export default function Button({
@@ -19,6 +20,7 @@ export default function Button({
   isLoading,
   onClick,
   className,
+  type,
 }: Props) {
   return (
     <ButtonStyle
@@ -28,6 +30,7 @@ export default function Button({
       isLoading={isLoading}
       onClick={onClick}
       className={className}
+      type={type}
     >
       {children}
     </ButtonStyle>
