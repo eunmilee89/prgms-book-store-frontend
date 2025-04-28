@@ -35,7 +35,7 @@ interface EllipsisBoxStyleProps {
 const StyledEllipsisBox = styled.div<EllipsisBoxStyleProps>`
   p {
     overflow: hidden;
-    text-decoration: ellipsis;
+    text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: ${({ lineLimit, $expanded }) =>
       $expanded ? 'none' : lineLimit};
