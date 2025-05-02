@@ -54,7 +54,14 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
+    "@faker-js/faker": "^9.7.0",
     "@types/react-router-dom": "^5.3.3",
-    "craco-alias": "^3.0.1"
+    "craco-alias": "^3.0.1",
+    "msw": "^2.7.5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
