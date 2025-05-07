@@ -19,7 +19,7 @@ const FooterStyle = styled.footer<{ theme: Theme }>`
   width: 100%;
   margin: 0 auto;
   max-width: ${({ theme }) => theme.layout.width.large};
-  border-top: 1px solid ${({ theme }) => theme.color.background};
+  border-top: 1px solid ${({ theme }) => theme.color.secondary};
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
@@ -35,5 +35,10 @@ const FooterStyle = styled.footer<{ theme: Theme }>`
       font-size: 0.75rem;
       color: ${({ theme }) => theme.color.text};
     }
+  }
+
+  @media ${({ theme }) => `screen and ${theme.mediaQuery.mobile}`} {
+    flex-direction: column;
+    align-items: center;
   }
 `;

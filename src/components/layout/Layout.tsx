@@ -22,5 +22,8 @@ const LayoutStyle = styled.main<{ theme: Theme }>`
   width: 100%;
   margin: 0 auto;
   max-width: ${({ theme }) => theme.layout.width.large};
-  padding: 20px 0;
+
+  @media ${({ theme }) => `screen and ${theme.mediaQuery.mobile}`} {
+    padding: 0 12px;
+  }
 `;
