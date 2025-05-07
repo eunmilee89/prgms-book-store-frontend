@@ -11,8 +11,10 @@ const SCRIPT_URL =
 export default function FindAddressButton({ onCompleted }: Props) {
   const handleOpen = () => {
     new window.daum.Postcode({
-      oncompleted: (data: any) => {
-        onCompleted(data.address as string);
+      oncomplete: (data: any) => {
+        const address =
+          data.userSelectedType === 'R' ? data.roadAddress : data.jibunAddress;
+        onCompleted(address);
       },
     }).open();
   };
@@ -21,6 +23,7 @@ export default function FindAddressButton({ onCompleted }: Props) {
     const script = document.createElement('script');
     script.src = SCRIPT_URL;
     script.async = true;
+
     document.head.appendChild(script);
 
     return () => {
