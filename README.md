@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+# 📚 Book Store Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+프로그래머스 북스토어 풀스택 과정에서 제작한 온라인 서점 프론트엔드 프로젝트입니다.
+도서 검색, 카테고리 탐색, 장바구니, 주문 등 이커머스 핵심 기능을 구현했습니다.
 
-## Available Scripts
+## 🛠 기술 스택
 
-In the project directory, you can run:
+| 분류 | 기술 |
+|------|------|
+| Framework | React 19, TypeScript |
+| Routing | React Router DOM v7 |
+| 상태 관리 | Zustand |
+| 서버 상태 | TanStack Query (React Query) v5 |
+| HTTP 클라이언트 | Axios |
+| 스타일링 | Styled-Components |
+| 폼 관리 | React Hook Form |
+| 날짜 처리 | Day.js |
+| 슬라이더 | React Slick |
+| 아이콘 | React Icons |
+| API Mocking | MSW (Mock Service Worker) v2 |
+| 빌드 도구 | CRA + CRACO |
+| 테스트 | Testing Library, Jest |
 
-### `npm start`
+## ✨ 주요 기능
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 도서 목록 조회 및 카테고리 필터링
+- 도서 상세 페이지
+- 도서 검색
+- 장바구니 담기 / 수량 변경 / 삭제
+- 주문 및 주문 내역 확인
+- 회원가입 / 로그인 / 로그아웃
+- 좋아요 기능
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📁 프로젝트 구조
 
-### `npm test`
+```
+src/
+├── api/           # Axios 기반 API 통신 모듈
+├── components/    # 재사용 가능한 공통 컴포넌트
+├── hooks/         # 커스텀 훅 (useXxx)
+├── pages/         # 라우트 단위 페이지 컴포넌트
+├── store/         # Zustand 전역 상태
+├── models/        # TypeScript 타입/인터페이스 정의
+├── utils/         # 유틸리티 함수
+├── mocks/         # MSW 핸들러 (개발용 API 모킹)
+└── style/         # 전역 스타일, 테마
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔗 관련 저장소
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 백엔드: [백엔드 깃허브 저장소](https://github.com/eunmilee89/prgms-book-store-backend)
