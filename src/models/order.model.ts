@@ -29,6 +29,7 @@ export interface orderDetailItem {
   author: string;
   price: number;
   quantity: number;
+  img?: number;
 }
 
 export interface OrderListItem extends Order {

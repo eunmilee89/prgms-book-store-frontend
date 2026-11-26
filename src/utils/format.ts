@@ -1,7 +1,8 @@
 import dayjs from 'dayjs';
 
-export const formatNumber = (number: number) => {
-  return number.toLocaleString();
+// DB 집계값이 문자열로 올 수 있어 숫자로 변환 후 포맷
+export const formatNumber = (number: number | string) => {
+  return Number(number).toLocaleString();
 };
 
 export const formatDate = (date: string, format?: string) => {
