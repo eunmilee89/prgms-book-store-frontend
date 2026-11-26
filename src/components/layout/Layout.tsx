@@ -10,20 +10,22 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <LayoutStyle>
+    <>
       <Header />
-      <main>{children}</main>
+      <LayoutStyle>{children}</LayoutStyle>
       <Footer />
-    </LayoutStyle>
+    </>
   );
 }
 
 const LayoutStyle = styled.main<{ theme: Theme }>`
   width: 100%;
+  min-height: calc(100vh - 68px - 220px);
   margin: 0 auto;
+  padding: 40px 24px 0;
   max-width: ${({ theme }) => theme.layout.width.large};
 
   @media ${({ theme }) => `screen and ${theme.mediaQuery.mobile}`} {
-    padding: 0 12px;
+    padding: 24px 16px 0;
   }
 `;

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import { FaAngleDown } from 'react-icons/fa';
+import { Theme } from '../../style/theme';
 
 interface Props {
   children: React.ReactNode;
@@ -40,14 +41,22 @@ const StyledEllipsisBox = styled.div<EllipsisBoxStyleProps>`
     -webkit-line-clamp: ${({ lineLimit, $expanded }) =>
       $expanded ? 'none' : lineLimit};
     -webkit-box-orient: vertical;
-    padding: 20px 0 0 0;
+    padding: 16px 0 0 0;
     margin: 0;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: ${({ theme }) => (theme as Theme).color.text};
   }
 
   .toggle {
     display: flex;
-    justify-content: end;
+    justify-content: flex-start;
+    padding-top: 12px;
+
     svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.2s ease;
       transform: ${({ $expanded }) =>
         $expanded ? 'rotate(180deg)' : 'rotate(0)'};
     }

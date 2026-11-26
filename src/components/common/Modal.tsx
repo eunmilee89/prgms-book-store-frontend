@@ -101,7 +101,8 @@ const StyledModal = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(18, 17, 16, 0.55);
+  backdrop-filter: blur(4px);
   opacity: 0;
 
   .modal-body {
@@ -109,12 +110,13 @@ const StyledModal = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 56px 32px 32px;
-    border-radius: ${({ theme }) => (theme as Theme).borderRadius.default};
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-
-    background-color: #fff;
-    max-width: 80%;
+    padding: 48px 28px 28px;
+    border-radius: ${({ theme }) => (theme as Theme).borderRadius.large};
+    box-shadow: ${({ theme }) => (theme as Theme).shadow.large};
+    background-color: ${({ theme }) => (theme as Theme).color.surface};
+    width: min(90vw, 420px);
+    max-height: 90vh;
+    overflow: auto;
   }
 
   .modal-close {
@@ -125,12 +127,13 @@ const StyledModal = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    padding: 12px;
+    padding: 14px;
 
     svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       transform: rotate(45deg);
+      fill: ${({ theme }) => (theme as Theme).color.muted};
     }
   }
 `;
