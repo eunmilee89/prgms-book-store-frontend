@@ -25,5 +25,6 @@ export default function BookReview({ reviews, onAdd }: Props) {
 const StyledBookReview = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
+  padding-top: 16px;
 `;

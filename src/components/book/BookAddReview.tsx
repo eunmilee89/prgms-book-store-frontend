@@ -19,7 +19,10 @@ export default function BookAddReview({ onAdd }: Props) {
     <StyledBookAddReview>
       <form onSubmit={handleSubmit(onAdd)}>
         <fieldset>
-          <textarea {...register('content', { required: true })}></textarea>
+          <textarea
+            placeholder='이 책에 대한 생각을 남겨주세요.'
+            {...register('content', { required: true })}
+          ></textarea>
           {errors.content && (
             <p className='error-text'>리뷰 내용을 입력해주세요.</p>
           )}
@@ -28,13 +31,15 @@ export default function BookAddReview({ onAdd }: Props) {
         <div className='submit'>
           <fieldset>
             <select
+              defaultValue='5'
+              aria-label='평점'
               {...register('score', { required: true, valueAsNumber: true })}
             >
-              <option value='1'>1점</option>
-              <option value='2'>2점</option>
-              <option value='3'>3점</option>
-              <option value='4'>4점</option>
-              <option value='5'>5점</option>
+              <option value='5'>★★★★★ 5점</option>
+              <option value='4'>★★★★ 4점</option>
+              <option value='3'>★★★ 3점</option>
+              <option value='2'>★★ 2점</option>
+              <option value='1'>★ 1점</option>
             </select>
           </fieldset>
           <Button size='medium' scheme='primary'>
@@ -47,10 +52,14 @@ export default function BookAddReview({ onAdd }: Props) {
 }
 
 const StyledBookAddReview = styled.div`
+  padding: 20px;
+  border-radius: ${({ theme }) => (theme as Theme).borderRadius.large};
+  background: ${({ theme }) => (theme as Theme).color.surfaceAlt};
+
   form {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 12px;
 
     fieldset {
       border: 0;
@@ -58,11 +67,11 @@ const StyledBookAddReview = styled.div`
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      justify-content: end;
+      gap: 8px;
 
       .error-text {
-        color: red;
+        font-size: 0.8125rem;
+        color: ${({ theme }) => (theme as Theme).color.danger};
         padding: 0;
         margin: 0;
       }
@@ -70,16 +79,36 @@ const StyledBookAddReview = styled.div`
 
     textarea {
       width: 100%;
-      height: 100px;
+      height: 110px;
+      resize: vertical;
       border: 1px solid ${({ theme }) => (theme as Theme).color.border};
       border-radius: ${({ theme }) => (theme as Theme).borderRadius.default};
-      padding: 12px;
+      background: ${({ theme }) => (theme as Theme).color.surface};
+      padding: 14px;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+
+      &:focus {
+        outline: none;
+        border-color: ${({ theme }) => (theme as Theme).color.primary};
+      }
+    }
+
+    select {
+      height: 40px;
+      padding: 0 12px;
+      border: 1px solid ${({ theme }) => (theme as Theme).color.border};
+      border-radius: ${({ theme }) => (theme as Theme).borderRadius.default};
+      background: ${({ theme }) => (theme as Theme).color.surface};
+      font-size: 0.875rem;
+      color: #e9a23b;
     }
 
     .submit {
       display: flex;
-      justify-content: end;
-      gap: 12px;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
     }
   }
 `;

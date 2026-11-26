@@ -19,9 +19,14 @@ export default function MainNewBooks({ books }: Props) {
 const StyledMainNewBooks = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 40px 28px;
+  padding: 36px;
+  border-radius: ${({ theme }) => theme.borderRadius.large};
+  background: ${({ theme }) => theme.color.surfaceAlt};
 
   @media ${({ theme }) => `screen and ${theme.mediaQuery.mobile}`} {
     grid-template-columns: repeat(2, 1fr);
+    gap: 28px 16px;
+    padding: 20px;
   }
 `;

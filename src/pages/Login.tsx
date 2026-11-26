@@ -26,8 +26,11 @@ export default function Login() {
 
   return (
     <>
-      <Title size='large'>로그인</Title>
       <StyledSignup>
+        <div className='head'>
+          <Title size='large'>로그인</Title>
+          <p>다시 만나서 반가워요. 계정에 로그인하세요.</p>
+        </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
             <InputText
@@ -57,7 +60,9 @@ export default function Login() {
             </Button>
           </fieldset>
           <div className='info'>
-            <Link to='/reset'>비밀번호 초기화</Link>
+            <Link to='/reset'>비밀번호를 잊으셨나요?</Link>
+            <span className='dot' />
+            <Link to='/signup'>회원가입</Link>
           </div>
         </form>
       </StyledSignup>

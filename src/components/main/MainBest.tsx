@@ -19,9 +19,14 @@ export default function MainBest({ books }: Props) {
 const StyledMainBest = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  gap: 40px 24px;
+
+  @media ${({ theme }) => `screen and ${theme.mediaQuery.tablet}`} {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
   @media ${({ theme }) => `screen and ${theme.mediaQuery.mobile}`} {
     grid-template-columns: repeat(2, 1fr);
+    gap: 28px 16px;
   }
 `;
