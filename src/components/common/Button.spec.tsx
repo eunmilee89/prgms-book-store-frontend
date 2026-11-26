@@ -24,7 +24,7 @@ describe('Button 컴포넌트 테스트', () => {
       </BookStoreThemeProvider>
     );
 
-    expect(screen.getByRole('button')).toHaveStyle({ fontSize: '1.5rem' });
+    expect(screen.getByRole('button')).toHaveStyle({ fontSize: '1.0625rem' });
   });
 
   it('scheme color 확인', () => {
@@ -36,6 +36,6 @@ describe('Button 컴포넌트 테스트', () => {
       </BookStoreThemeProvider>
     );
 
-    expect(screen.getByRole('button')).toHaveStyle({ color: 'white' });
+    expect(screen.getByRole('button')).toHaveStyle({ color: '#FBF7F0' });
   });
 });
