@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420" width="300" height="420">
+  <defs>
+    <linearGradient id="spine" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#000" stop-opacity="0.28"/>
+      <stop offset="0.06" stop-color="#fff" stop-opacity="0.12"/>
+      <stop offset="0.1" stop-color="#000" stop-opacity="0.06"/>
+      <stop offset="0.16" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.10"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="420" fill="#DDE5D8"/>
+  
+    <path d="M0 250 C 60 220, 100 280, 150 250 S 240 220, 300 250 V 420 H 0 Z" fill="#2F4F3E" opacity="1"/><path d="M0 290 C 60 260, 100 320, 150 290 S 240 260, 300 290 V 420 H 0 Z" fill="#B85C38" opacity="0.88"/><path d="M0 330 C 60 300, 100 360, 150 330 S 240 300, 300 330 V 420 H 0 Z" fill="#C8D4C1" opacity="0.76"/><path d="M0 370 C 60 340, 100 400, 150 370 S 240 340, 300 370 V 420 H 0 Z" fill="#2F4F3E" opacity="0.64"/>
+  <rect width="300" height="420" fill="url(#sheen)"/>
+  <rect width="300" height="420" fill="url(#spine)"/>
+</svg>

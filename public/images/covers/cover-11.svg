@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420" width="300" height="420">
+  <defs>
+    <linearGradient id="spine" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#000" stop-opacity="0.28"/>
+      <stop offset="0.06" stop-color="#fff" stop-opacity="0.12"/>
+      <stop offset="0.1" stop-color="#000" stop-opacity="0.06"/>
+      <stop offset="0.16" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.10"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="420" fill="#2B2D42"/>
+  
+    <rect x="34" y="210" width="150" height="90" fill="#EF233C"/>
+    <rect x="184" y="210" width="82" height="150" fill="#EDF2F4"/>
+    <rect x="34" y="300" width="150" height="60" fill="#3B3E59"/>
+    <rect x="34" y="360" width="232" height="26" fill="#EF233C" opacity="0.55"/>
+    <circle cx="225" cy="250" r="22" fill="#EF233C"/>
+  <rect width="300" height="420" fill="url(#sheen)"/>
+  <rect width="300" height="420" fill="url(#spine)"/>
+</svg>

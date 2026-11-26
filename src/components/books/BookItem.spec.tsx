@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import BookItem from './BookItem';
+import { getImgSrc } from '../../utils/image';
 import { BookStoreThemeProvider } from '../../context/ThemeContext';
 
 const dummyBook = {
@@ -35,7 +36,7 @@ describe('BookItem 컴포넌트 테스트', () => {
     expect(screen.getByText(dummyBook.likes)).toBeInTheDocument();
     expect(screen.getByAltText(dummyBook.title)).toHaveAttribute(
       'src',
-      `https://picsum.photos/id/${dummyBook.img}/600/600`
+      getImgSrc(dummyBook.img)
     );
   });
 });
