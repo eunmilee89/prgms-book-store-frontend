@@ -66,24 +66,30 @@ const StyledToast = styled.div<{ theme: Theme }>`
     animation: fade-out 0.3s ease-in-out forwards;
   }
 
-  background-color: ${({ theme }) => theme.color.secondary};
-  padding: 12px;
+  min-width: 280px;
+  max-width: 360px;
+  padding: 14px 16px;
+  background-color: ${({ theme }) => theme.color.text};
   border-radius: ${({ theme }) => theme.borderRadius.default};
+  box-shadow: ${({ theme }) => theme.shadow.large};
 
   display: flex;
   justify-content: space-between;
-  align-items: start;
-  gap: 24px;
+  align-items: center;
+  gap: 12px;
+
+  > svg {
+    flex-shrink: 0;
+    fill: ${({ theme }) => theme.color.background};
+    opacity: 0.8;
+  }
 
   p {
-    color: ${({ theme }) => theme.color.text};
-    line-height: 1;
+    color: ${({ theme }) => theme.color.background};
+    font-size: 0.9rem;
+    line-height: 1.4;
     margin: 0;
     flex: 1;
-
-    display: flex;
-    align-items: end;
-    gap: 4px;
   }
 
   button {
@@ -95,6 +101,8 @@ const StyledToast = styled.div<{ theme: Theme }>`
 
     svg {
       transform: rotate(45deg);
+      fill: ${({ theme }) => theme.color.background};
+      opacity: 0.6;
     }
   }
 `;

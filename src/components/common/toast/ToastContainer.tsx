@@ -20,11 +20,22 @@ export default function ToastContainer() {
 
 const StyledToastContainer = styled.div`
   position: fixed;
-  top: 32px;
+  top: 84px;
   right: 24px;
-  z-index: 100;
+  z-index: 1100;
 
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  @media ${({ theme }) => `screen and ${theme.mediaQuery.mobile}`} {
+    top: 68px;
+    left: 16px;
+    right: 16px;
+
+    > div {
+      min-width: 0;
+      max-width: none;
+    }
+  }
 `;

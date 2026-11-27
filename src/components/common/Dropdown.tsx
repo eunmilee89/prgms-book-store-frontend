@@ -1,6 +1,6 @@
-import { Theme } from '@/style/theme';
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import { Theme } from '@/style/theme';
 
 interface Props {
   children: React.ReactNode;
@@ -33,10 +33,19 @@ export default function Dropdown({
 
   return (
     <StyledDropdown $open={open} ref={dropdownRef}>
-      <button className='toggle' onClick={() => setOpen(!open)}>
+      <button
+        type='button'
+        className='toggle'
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+      >
         {toggleButton}
       </button>
-      {open && <div className='panel'>{children}</div>}
+      {open && (
+        <div className='panel' onClick={() => setOpen(false)}>
+          {children}
+        </div>
+      )}
     </StyledDropdown>
   );
 }
@@ -48,28 +57,58 @@ interface StyledDropdownProps {
 const StyledDropdown = styled.div<StyledDropdownProps>`
   position: relative;
 
-  button {
-    background: none;
-    border: none;
+  .toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: ${({ theme, $open }) => ($open ? (theme as Theme).color.hover : 'none')};
     cursor: pointer;
-    outline: none;
+    transition: background-color 0.2s ease;
 
     svg {
-      width: 30px;
-      height: 30px;
+      width: 24px;
+      height: 24px;
       fill: ${({ theme, $open }) =>
-        $open ? (theme as Theme).color.primary : (theme as Theme).color.text};
+        $open ? (theme as Theme).color.accent : (theme as Theme).color.text};
+      transition: fill 0.2s ease;
+    }
+
+    &:hover {
+      background-color: ${({ theme }) => (theme as Theme).color.hover};
+
+      svg {
+        fill: ${({ theme }) => (theme as Theme).color.accent};
+      }
     }
   }
 
   .panel {
     position: absolute;
-    top: 40px;
+    top: calc(100% + 8px);
     right: 0;
-    padding: 16px;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: ${({ theme }) => (theme as Theme).borderRadius.default};
+    min-width: 168px;
+    padding: 6px;
+    background: ${({ theme }) => (theme as Theme).color.surface};
+    border: 1px solid ${({ theme }) => (theme as Theme).color.border};
+    border-radius: 12px;
+    box-shadow: ${({ theme }) => (theme as Theme).shadow.large};
     z-index: 100;
+    animation: dropdown-fade 0.15s ease-out;
+  }
+
+  @keyframes dropdown-fade {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 `;

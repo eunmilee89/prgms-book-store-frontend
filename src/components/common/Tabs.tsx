@@ -42,29 +42,48 @@ function Tabs({ children }: TabsProps) {
 const StyledTabs = styled.div`
   .tab-header {
     display: flex;
-    gap: 2px;
-    border-bottom: 1px solid #ddd;
+    gap: 28px;
+    border-bottom: 1px solid ${({ theme }) => (theme as Theme).color.border};
 
     button {
+      position: relative;
+      padding: 14px 2px;
       border: none;
-      background: #ddd;
+      background: none;
       cursor: pointer;
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: ${({ theme }) => (theme as Theme).color.primary};
-      border-radius: ${({ theme }) => (theme as Theme).borderRadius.default}
-        ${({ theme }) => (theme as Theme).borderRadius.default} 0 0;
-      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: ${({ theme }) => (theme as Theme).color.secondary};
+      transition: color 0.15s ease;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: 2px;
+        background: ${({ theme }) => (theme as Theme).color.text};
+        transform: scaleX(0);
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        color: ${({ theme }) => (theme as Theme).color.text};
+      }
 
       &.active {
-        color: #fff;
-        background: ${({ theme }) => (theme as Theme).color.primary};
+        color: ${({ theme }) => (theme as Theme).color.text};
+
+        &::after {
+          transform: scaleX(1);
+        }
       }
     }
   }
 
   .tab-content {
-    padding: 24px 0;
+    padding: 32px 0;
   }
 `;
 

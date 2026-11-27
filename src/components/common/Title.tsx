@@ -9,14 +9,27 @@ interface Props {
 
 export default function Title({ children, size, color }: Props) {
   return (
-    <TitleStyle size={size} color={color}>
+    <TitleStyle $size={size} $color={color}>
       {children}
     </TitleStyle>
   );
 }
 
-const TitleStyle = styled.h1<Omit<Props, 'children'>>`
-  font-size: ${({ theme, size }) => (theme as Theme).heading[size].fontSize};
-  color: ${({ theme, color }) =>
-    color ? (theme as Theme).color[color] : (theme as Theme).color.primary};
+interface TitleStyleProps {
+  $size: HeadingSize;
+  $color?: ColorKey;
+}
+
+type TitleStyleArgs = TitleStyleProps & { theme: Theme };
+
+const TitleStyle = styled.h1<TitleStyleProps>`
+  font-family: ${({ theme }: TitleStyleArgs) => theme.font.serif};
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+  font-size: ${({ theme, $size }: TitleStyleArgs) =>
+    theme.heading[$size].fontSize};
+  color: ${({ theme, $color }: TitleStyleArgs) =>
+    $color ? theme.color[$color] : theme.color.text};
 `;

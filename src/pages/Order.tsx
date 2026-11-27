@@ -113,19 +113,25 @@ export default function Order() {
               주문 상품
             </Title>
             <strong>
-              {firstBookTitle} 등 총 {totalQuantity} 권
+              {firstBookTitle}
+              {totalQuantity > 1 && ` 외`} · 총 {totalQuantity}권
             </strong>
           </div>
         </div>
         <div className='summary'>
-          <CartSummary totalPrice={totalPrice} totalQuantity={totalQuantity} />
-          <Button
-            size='large'
-            scheme='primary'
-            onClick={handleSubmit(handlePay)}
-          >
-            결제하기
-          </Button>
+          <div className='summary-card'>
+            <CartSummary
+              totalPrice={totalPrice}
+              totalQuantity={totalQuantity}
+            />
+            <Button
+              size='large'
+              scheme='primary'
+              onClick={handleSubmit(handlePay)}
+            >
+              결제하기
+            </Button>
+          </div>
         </div>
       </StyledCart>
     </>

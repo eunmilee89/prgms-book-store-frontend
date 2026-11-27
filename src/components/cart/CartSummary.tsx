@@ -16,6 +16,10 @@ export default function CartSummary({ totalQuantity, totalPrice }: Props) {
         <dd>{totalQuantity} 권</dd>
       </dl>
       <dl>
+        <dt>배송비</dt>
+        <dd className='free'>무료</dd>
+      </dl>
+      <dl className='total'>
         <dt>총 금액</dt>
         <dd>{formatNumber(totalPrice)} 원</dd>
       </dl>
@@ -24,21 +28,47 @@ export default function CartSummary({ totalQuantity, totalPrice }: Props) {
 }
 
 const StyledCartSummary = styled.div<{ theme: Theme }>`
-  border: 1px solid ${({ theme }) => theme.color.border};
-  border-radius: ${({ theme }) => theme.borderRadius.default};
-  padding: 12px;
-  width: 240px;
-
   h1 {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
+    font-family: ${({ theme }) => theme.font.serif};
+    font-size: 1.2rem;
+    margin-bottom: 20px;
   }
+
   dl {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 12px;
+    margin: 0 0 12px;
+    font-size: 0.9375rem;
+
+    dt {
+      color: ${({ theme }) => theme.color.muted};
+    }
+
     dd {
-      font-weight: 700;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .free {
+      color: ${({ theme }) => theme.color.third};
+    }
+  }
+
+  .total {
+    margin: 20px 0 0;
+    padding-top: 20px;
+    border-top: 1px dashed ${({ theme }) => theme.color.border};
+    align-items: baseline;
+
+    dt {
+      color: ${({ theme }) => theme.color.text};
+      font-weight: 600;
+    }
+
+    dd {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
   }
 `;

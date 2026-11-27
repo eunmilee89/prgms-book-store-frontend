@@ -26,8 +26,11 @@ export default function ResetPassword() {
 
   return (
     <>
-      <Title size='large'>비밀번호 초기화</Title>
       <StyledSignup>
+        <div className='head'>
+          <Title size='large'>비밀번호 초기화</Title>
+          <p>가입한 이메일을 입력하면 비밀번호를 재설정할 수 있어요.</p>
+        </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
             <InputText
@@ -57,7 +60,7 @@ export default function ResetPassword() {
             </Button>
           </fieldset>
           <div className='info'>
-            <Link to='/reset'>비밀번호 초기화</Link>
+            <Link to='/login'>로그인으로 돌아가기</Link>
           </div>
         </form>
       </StyledSignup>

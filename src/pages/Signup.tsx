@@ -28,8 +28,11 @@ export default function Signup() {
 
   return (
     <>
-      <Title size='large'>회원가입</Title>
       <StyledSignup>
+        <div className='head'>
+          <Title size='large'>회원가입</Title>
+          <p>이메일 하나로 간단하게 시작해보세요.</p>
+        </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
             <InputText
@@ -57,7 +60,8 @@ export default function Signup() {
             </Button>
           </fieldset>
           <div className='info'>
-            <Link to='/reset'>비밀번호 초기화</Link>
+            이미 계정이 있으신가요?
+            <Link to='/login'>로그인</Link>
           </div>
         </form>
       </StyledSignup>
@@ -67,26 +71,88 @@ export default function Signup() {
 
 export const StyledSignup = styled.div<{ theme: Theme }>`
   max-width: ${({ theme }) => theme.layout.width.small};
-  margin: 80px auto;
+  margin: 40px auto 0;
+  padding: 44px 40px 36px;
+  border: 1px solid ${({ theme }) => theme.color.border};
+  border-radius: ${({ theme }) => theme.borderRadius.large};
+  background: ${({ theme }) => theme.color.surface};
+  box-shadow: ${({ theme }) => theme.shadow.medium};
+
+  .head {
+    margin-bottom: 28px;
+    text-align: center;
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: ${({ theme }) => theme.color.muted};
+      word-break: keep-all;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
   fieldset {
     border: 0;
-    padding: 0 0 8px 0;
+    margin: 0;
+    padding: 0;
+
     .error-text {
-      color: red;
+      margin: 6px 0 0 2px;
+      font-size: 0.8125rem;
+      color: ${({ theme }) => theme.color.danger};
     }
   }
 
   input {
     width: 100%;
+    height: 48px;
   }
 
   button {
     width: 100%;
+    height: 50px;
+    margin-top: 8px;
   }
 
   .info {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     padding: 16px 0 0 0;
+    font-size: 0.875rem;
+    color: ${({ theme }) => theme.color.muted};
+
+    a {
+      font-weight: 600;
+      color: ${({ theme }) => theme.color.text};
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+    }
+
+    .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: ${({ theme }) => theme.color.border};
+    }
+  }
+
+  @media ${({ theme }) => `screen and ${theme.mediaQuery.mobile}`} {
+    margin-top: 16px;
+    padding: 32px 22px 28px;
   }
 `;
